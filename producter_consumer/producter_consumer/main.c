@@ -43,7 +43,8 @@ void *consumer(void *arg)
 	for (i = 0; i < loops; i++)
 	{
 		pthread_mutex_lock(&mutex);
-		if (count == 0)
+		// if (count == 0)
+		while (count == 0)
 		{
 			pthread_cond_wait(&cond, &mutex);
 		}
